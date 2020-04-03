@@ -1,0 +1,17 @@
+<ion-content padding>
+  <ion-header>
+    <ion-navbar color="primary">
+      <ion-title>{{getDetail.rentalroom_name}}</ion-title>
+      <ion-buttons end>
+        <button ion-button (click)="getCurrentLocation()">
+          <ion-icon name="locate" color="secondary"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <div #map id="map"></div>
+  </ion-content>
+  
+</ion-content>

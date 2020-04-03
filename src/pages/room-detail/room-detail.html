@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>รายละเอียดห้องเช่า</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <img src="{{cate.rentalroom_img}}">
+  <ion-item >
+    <br>
+    <h2>ชื่อ : {{cate.rentalroom_name}}</h2>
+  </ion-item>
+
+  <ion-item >
+    <br>
+    <h2>ราคา : {{cate.rentalroom_price}} บาท /  {{cate.rentalroom_facilities}}</h2>
+  </ion-item>
+
+  <ion-item >
+    <br>
+    <h2>ที่อยู่ : {{cate.rentalroom_name_location}}</h2>
+  </ion-item>
+
+  <ion-item >
+    <br>
+    <h2>เบอร์โทร : {{cate.rentalroom_phone}}</h2>
+  </ion-item>
+
+  <ion-item >
+    <br>
+    <h2>กำจัดเพศ : {{cate.rentalroom_limitedroom_sex}}</h2>
+  </ion-item>
+
+  <ion-item *ngFor="let name of getnaja">
+    <br>
+    <h2>ประเภทห้องเช่า : {{name.category_name}}</h2>
+  </ion-item>
+  
+  <ion-col>
+    <button ion-button padding round color="secondary"  icon-left  full (click)="share()">
+      <div><ion-icon name="share"></ion-icon>Share</div>
+    </button>
+  </ion-col>
+
+  <ion-col>
+    <button ion-button padding round color="secondary"  icon-left  full (click)="gmap()">
+      <div><ion-icon name="map"></ion-icon>แผนที่</div>
+    </button>
+  </ion-col>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-9>
+        <h5>ระดับดาว : {{num}}</h5>
+        <ionic3-star-rating #rating
+        activeIcon = "ios-star"
+        defaultIcon = "ios-star-outline"
+        activeColor = "yellow"
+        defaultColor = "#f4f4f4"
+        readonly="false"
+        rating="{{num}}"
+        fontSize = "22px">
+    </ionic3-star-rating>
+      </ion-col>
+ 
+    </ion-row>
+    <h5>ความเห็นจากลูกค้า</h5>
+    <ion-item>
+      
+      <ion-label floating>แสดงความคิดเห็น</ion-label>
+      <ion-input type="text" [(ngModel)]="cm"></ion-input>
+    </ion-item>
+ 
+    <button ion-button padding round  color="secondary" (click)="summit(cm)">ยืนยัน</button>
+  </ion-grid>
+
+  <ion-item>
+    <p>ความคิดเห็น</p>
+    <br>
+    <ion-item *ngFor="let com of comment">
+      <ion-avatar item-left>
+        <img src="https://image.shutterstock.com/image-vector/user-icon-260nw-525551584.jpg">
+      </ion-avatar>
+      <h2>{{com.comment_content}}</h2>
+      <button item-end>{{com.comment_score}}<ion-icon name="star"></ion-icon></button>
+    </ion-item>
+  </ion-item>
+
+
+</ion-content>
